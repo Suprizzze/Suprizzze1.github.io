@@ -15,7 +15,7 @@ window.onscroll = function() {
 
 	frames.forEach(function(n, i) {
 		zVals.push((i * zSpacing) + zSpacing)
-		zVals[i] += delta * -5.5
+		zVals[i] += delta * -6.9
 		let frame = frames[i],
 				transform = `translateZ(${zVals[i]}px)`,
 				opacity = zVals[i] < Math.abs(zSpacing) / 1.8 ? 1 : 0
@@ -43,3 +43,35 @@ window.onfocus = function() {
 window.onblur = function() {
 	audio.pause()
 }
+const sliderBg = new Swiper('.slider_bg', {
+	centeredSlides: true,
+	parallax: true,
+	spaceBetween: 60,
+	slidesPerView: 5
+})
+
+var body = document.body,
+
+    timer;
+
+window.addEventListener('scroll', function() {
+
+  clearTimeout(timer);
+
+  if(!body.classList.contains('disable-hover')) {
+
+    body.classList.add('disable-hover')
+
+  }
+
+  
+
+  timer = setTimeout(function(){
+
+    body.classList.remove('disable-hover')
+
+  },500);
+
+}, false);
+
+
